@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaLock } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const Offer = () => {
   const [formData, setFormData] = useState({
   name: "",
@@ -12,7 +12,46 @@ const Offer = () => {
 });
 
 const [status, setStatus] = useState("idle");
+const navigate = useNavigate();
 
+const [timeLeft, setTimeLeft] = useState({
+  hours: 2,
+  minutes: 45,
+  seconds: 30,
+});
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => {
+      let { hours, minutes, seconds } = prev;
+
+      if (hours === 0 && minutes === 0 && seconds === 0) {
+        clearInterval(timer);
+        return prev;
+      }
+
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        seconds = 59;
+
+        if (minutes > 0) {
+          minutes--;
+        } else {
+          minutes = 59;
+
+          if (hours > 0) {
+            hours--;
+          }
+        }
+      }
+
+      return { hours, minutes, seconds };
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
 const handleChange = (e) => {
   setFormData({
     ...formData,
@@ -95,20 +134,30 @@ const handleSubmit = async (e) => {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-4 text-center mb-8">
-              <div className="bg-white/10 rounded-lg p-3">
-                <p className="text-3xl font-bold">02</p>
-                <p className="text-xs text-gray-400 uppercase tracking-wider">Hours</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3">
-                <p className="text-3xl font-bold">45</p>
-                <p className="text-xs text-gray-400 uppercase tracking-wider">Minutes</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3">
-                <p className="text-3xl font-bold">30</p>
-                <p className="text-xs text-gray-400 uppercase tracking-wider">Seconds</p>
-              </div>
-            </div>
+        <div className="grid grid-cols-3 gap-4 text-center mb-8">
+
+  <div className="bg-white/10 rounded-lg p-3">
+    <p className="text-3xl font-bold">
+      {String(timeLeft.hours).padStart(2, "0")}
+    </p>
+    <p className="text-xs text-gray-400 uppercase">Hours</p>
+  </div>
+
+  <div className="bg-white/10 rounded-lg p-3">
+    <p className="text-3xl font-bold">
+      {String(timeLeft.minutes).padStart(2, "0")}
+    </p>
+    <p className="text-xs text-gray-400 uppercase">Minutes</p>
+  </div>
+
+  <div className="bg-white/10 rounded-lg p-3">
+    <p className="text-3xl font-bold">
+      {String(timeLeft.seconds).padStart(2, "0")}
+    </p>
+    <p className="text-xs text-gray-400 uppercase">Seconds</p>
+  </div>
+
+</div>
             
             <div className="text-center">
               <p className="text-sm font-semibold mb-2">Hurry! Offer ends soon. Limited Seats Available!</p>
@@ -116,6 +165,12 @@ const handleSubmit = async (e) => {
                 <div className="bg-primary-orange h-2.5 rounded-full w-[36%]"></div>
               </div>
               <p className="text-xs text-yellow-400 font-bold text-left"><span className="text-white">18</span> / 50 Seats Left</p>
+              <button
+  onClick={() => navigate("/payment")}
+  className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl text-lg transition duration-300 shadow-lg"
+>
+  💳 Pay Now
+</button>
             </div>
           </div>
           

@@ -38,9 +38,7 @@ const Trainer = () => {
               Pankaj Dubey
             </h3>
 
-            <p className="text-gray-600 font-semibold mt-2">
-              Director
-            </p>
+           
 
             <p className="text-blue-600 font-semibold text-sm mb-6">
               BeanGate IT Solutions Pvt. Ltd.

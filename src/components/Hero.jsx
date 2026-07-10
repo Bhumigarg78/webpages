@@ -81,16 +81,12 @@ const Hero = () => {
   ENROLL NOW
 </button>
 
-             <button
-  onClick={() =>
-    window.open(
-      "https://wa.me/919993376705?text=Hi%20I%20want%20to%20know%20more%20about%20the%20MERN%20Stack%20course.",
-      "_blank"
-    )
-  }
+          
+<button
+  onClick={() => window.open("https://wa.me/919993376705", "_blank")}
   className="h-14 w-full sm:w-auto px-8 bg-green-500 rounded-lg font-bold text-white flex items-center justify-center gap-2 hover:bg-green-600 transition"
 >
-  <FaWhatsapp />
+  <FaWhatsapp className="text-xl" />
   CHAT ON WHATSAPP
 </button>
 

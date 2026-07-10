@@ -26,54 +26,12 @@ function Payment() {
       setCopied(null);
     }, 1500);
   };
-  // const plans = [
-  //   {
-  //     title: "Registration Only",
-  //     price: "₹2,000",
-  //     total: "₹2,360",
-  //     icon: <FaShieldAlt />,
-  //     btn: "Register Now",
-  //     color: "from-pink-500 to-purple-500",
-  //     features: [
-  //       "Course Registration",
-  //       "Learning Material Access",
-  //       "Community Access",
-  //       "Basic Resources",
-  //       "30 Days Access",
-  //     ],
-  //   },
-  //   {
-  //     title: "Installment Plan",
-  //     price: "₹17,000",
-  //     old: "₹35,000",
-  //     total: "₹20,060",
-  //     icon: <FaCreditCard />,
-  //     btn: "View Installment Plans",
-  //     highlight: true,
-  //     features: [
-  //       "Complete Course Access",
-  //       "All Projects & Assignments",
-  //       "Live Interactive Sessions",
-  //       "Industry Certificate",
-  //       "No-Cost EMI Available",
-  //     ],
-  //   },
-  //   {
-  //     title: "One-Time Payment",
-  //     price: "₹15,000",
-  //     total: "₹17,700",
-  //     icon: <FaMoneyBill />,
-  //     btn: "Buy Now",
-  //     features: [
-  //       "Complete Course Access",
-  //       "All Projects & Assignments",
-  //       "Live Sessions",
-  //       "Certificate",
-  //       "Lifetime Updates",
-  //     ],
-  //   },
-  // ];
+ const selectePlan = {
+  title: "MERN Stack Master Program",
+  total: "₹6,000",
+};
 
+  
   const bankData = [
     { label: "Account Holder", value: "BEANGATE IT SOLUTIONS PVT. LTD." },
     { label: "Bank Name", value: "IDFC FIRST BANK" },
@@ -277,13 +235,13 @@ function Payment() {
             <div className="mt-5 bg-white/10 p-3 sm:p-4 rounded-xl text-xs sm:text-sm">
               <p className="flex justify-between">
                 <span>Plan:</span>
-                <span className="font-semibold">{selectedPlan.title}</span>
+                <span className="font-semibold">{selectePlan.title}</span>
               </p>
 
               <p className="flex justify-between mt-2">
                 <span>Amount:</span>
                 <span className="text-green-400 font-bold">
-                  {selectedPlan.total}
+                  {selectePlan.total}
                 </span>
               </p>
             </div>
@@ -311,109 +269,7 @@ function Payment() {
         </div>
       )}
       {/* 🔥 INSTALLMENT MODAL */}
-      {showInstallment && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
-          <div className="bg-gradient-to-br from-[#0b0233] to-[#0f2a44] text-white p-6 rounded-3xl w-full max-w-xl max-h-[90vh] overflow-y-auto relative shadow-2xl">
-            {/* CLOSE */}
-            <button
-              onClick={() => setShowInstallment(false)}
-              className="absolute top-4 right-4 text-white/70 hover:text-white text-xl"
-            >
-              ✕
-            </button>
-
-            {/* HEADER */}
-            <div className="text-center mb-6">
-              <div className="w-14 h-14 mx-auto rounded-full bg-green-500/20 flex items-center justify-center mb-3">
-                <FaCreditCard className="text-green-400 text-2xl" />
-              </div>
-
-              <h2 className="text-2xl font-bold">Installment Plans</h2>
-              <p className="text-gray-400 text-sm mt-1">
-                Flexible payment options for your convenience
-              </p>
-            </div>
-
-            {/* SCHEDULE */}
-            <div className="bg-white/5 rounded-2xl p-4 mb-5">
-              <h3 className="font-semibold mb-3 text-lg">
-                5-Month Installment Schedule:
-              </h3>
-
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="flex justify-between items-center bg-white/5 px-4 py-3 rounded-lg mb-2"
-                >
-                  <span className="text-gray-300">
-                    {i}{" "}
-                    {i === 1 ? "st" : i === 2 ? "nd" : i === 3 ? "rd" : "th"}{" "}
-                    Installment:
-                  </span>
-                  <span className="font-semibold">₹4,012</span>
-                </div>
-              ))}
-            </div>
-
-            {/* SELECT */}
-            <div className="mb-4">
-              <p className="text-sm mb-3 text-gray-300">
-                Select Installment to Pay:
-              </p>
-
-              <div className="flex gap-3 flex-wrap justify-center">
-                {[1, 2, 3, 4, 5].map((num) => (
-                  <button
-                    key={num}
-                    onClick={() => setSelectedMonth(num)}
-                    className={`w-20 py-3 rounded-xl text-center transition-all ${
-                      selectedMonth === num
-                        ? "bg-green-500 text-white shadow-lg scale-105"
-                        : "bg-white/10 hover:bg-white/20"
-                    }`}
-                  >
-                    <div className="font-bold">{num}</div>
-                    <div className="text-xs text-gray-300">₹4,012</div>
-                  </button>
-                ))}
-              </div>
-
-              <p className="text-center mt-3 text-gray-400 text-sm">
-                Selected: Month {selectedMonth} - ₹4,012
-              </p>
-            </div>
-
-            {/* BUTTONS */}
-            <div className="flex gap-3 mt-6">
-              <button
-                onClick={() => setShowInstallment(false)}
-                className="flex-1 py-3 bg-gray-600 hover:bg-gray-700 rounded-xl transition"
-              >
-                Cancel
-              </button>
-
-              <button
-                onClick={() => {
-                  setShowInstallment(false);
-
-                  // ✅ Dynamic amount set
-                  const amount = 4012;
-
-                  setSelectedPlan({
-                    ...selectedPlan,
-                    total: `₹${amount}`,
-                  });
-
-                  setShowQR(true);
-                }}
-                className="flex-1 py-3 bg-green-500 hover:bg-green-600 rounded-xl font-semibold transition"
-              >
-                Pay Month {selectedMonth}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+    
       {showForm && selectedPlan && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
           <motion.div
@@ -441,12 +297,12 @@ function Payment() {
             <div className="bg-white/10 p-4 rounded-xl text-sm mb-4">
               <p className="flex justify-between">
                 <span>Plan:</span>
-                <span>{selectedPlan.title}</span>
+                <span>{selectePlan.title}</span>
               </p>
               <p className="flex justify-between mt-2">
                 <span>Amount Paid:</span>
                 <span className="text-green-400 font-bold">
-                  {selectedPlan.total}
+                  {selectePlan.total}
                 </span>
               </p>
             </div>
