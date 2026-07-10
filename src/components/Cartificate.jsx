@@ -128,7 +128,7 @@ const Certificate = () => {
 
       </h1>
 
-      <p className="text-gray-300 text-[13px] lg:text-[15px] mt-3 leading-10 max-w-4xl mx-auto">
+      <p className="text-gray-300 text-[1px] lg:text-[15px] mt-3 leading-10 max-w-4xl mx-auto">
 
         Showcase your skills and experience with industry-recognized certificates.
 
