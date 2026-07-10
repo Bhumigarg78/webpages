@@ -122,11 +122,11 @@ const handleSubmit = async (e) => {
               <div className="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
                 <div className="w-1/2 border-r border-gray-200">
                   <p className="text-gray-500 font-medium mb-1">Actual Price</p>
-                  <p className="text-3xl font-bold text-gray-400 line-through">₹15,000</p>
+                  <p className="lg:text-3xl text-2xl font-bold text-gray-400 line-through">₹15,000</p>
                 </div>
                 <div className="w-1/2">
                   <p className="text-gray-900 font-bold mb-1">Today Only</p>
-                  <p className="text-4xl font-bold text-primary-orange">₹6,000</p>
+                  <p className="lg:text-4xl text-2xl font-bold text-primary-orange">₹6,000</p>
                 </div>
               </div>
               <div className="bg-yellow-400 text-gray-900 text-xs font-bold py-1 px-4 rounded-full inline-block">
