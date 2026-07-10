@@ -12,29 +12,69 @@ const Stats = () => {
   ];
 
   return (
-    <section className="relative z-20 -mt-12 sm:-mt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
+  <section className="relative z-20 -mt-10 sm:-mt-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
+  {/* Mobile & Tablet */}
+  <div className="grid grid-cols-2 gap-4 md:hidden">
+    {stats.map((stat, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-white rounded-xl shadow-xl p-6 flex flex-wrap justify-between items-center gap-6"
+        transition={{ delay: index * 0.1 }}
+        whileHover={{ y: -5 }}
+        className="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center border border-gray-100"
       >
-        {stats.map((stat, index) => (
-          <div key={index} className="flex items-center gap-4 flex-1 min-w-[150px] justify-center md:justify-start">
-            <div className="bg-blue-50 p-3 rounded-full">
-              {stat.icon}
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-blue-500 leading-none">{stat.number}</h3>
-              <p className="text-sm text-gray-500">{stat.label}</p>
-            </div>
-            {index < stats.length - 1 && (
-              <div className="hidden md:block w-px h-12 bg-gray-200 ml-auto"></div>
-            )}
-          </div>
-        ))}
+        <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-3">
+          {stat.icon}
+        </div>
+
+        <h3 className="text-2xl font-bold text-blue-600">
+          {stat.number}
+        </h3>
+
+        <p className="text-gray-600 text-sm mt-1">
+          {stat.label}
+        </p>
       </motion.div>
-    </section>
+    ))}
+  </div>
+
+  {/* Desktop */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="hidden md:flex bg-white rounded-2xl shadow-2xl p-8 justify-between items-center"
+  >
+    {stats.map((stat, index) => (
+      <div
+        key={index}
+        className="flex items-center gap-4 flex-1"
+      >
+        <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+          {stat.icon}
+        </div>
+
+        <div>
+          <h3 className="text-3xl lg:text-4xl font-bold text-blue-600 leading-none">
+            {stat.number}
+          </h3>
+
+          <p className="text-gray-500 mt-2">
+            {stat.label}
+          </p>
+        </div>
+
+        {index !== stats.length - 1 && (
+          <div className="ml-auto h-14 w-px bg-gray-200"></div>
+        )}
+      </div>
+    ))}
+  </motion.div>
+
+</section>
   );
 };
 

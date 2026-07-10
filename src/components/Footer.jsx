@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-
+import logo from "../assets/logo-beangate.png"
 const Footer = () => {
   return (
     <footer className="bg-navy text-gray-400 pt-16 pb-6">
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="text-white font-bold text-xl flex items-center mb-6">
-              <span className="text-blue-500 mr-2 text-2xl">⚡</span>
+              <img src={logo} alt="" className="w-15"/>
               <div>
                 <span className="block leading-tight">BeanGate</span>
                 <span className="block text-[10px] font-normal text-gray-400">IT SOLUTIONS PVT. LTD.</span>
@@ -45,15 +45,16 @@ const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <FaPhoneAlt className="mt-1 text-blue-500" />
-                <span>+91 9148 492 742</span>
+                <span>+91 9752740090, 7471112020</span>
               </li>
               <li className="flex items-start gap-3">
                 <FaEnvelope className="mt-1 text-blue-500" />
-                <span>info@beangate.in</span>
+                <span>beangate.official@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 text-blue-500" />
-                <span>BeanGate IT Solutions Pvt. Ltd.<br/>Indore, Madhya Pradesh, India</span>
+                <span>BeanGate IT Solutions Pvt. Ltd.<br/> Flat No. A-4/501, Kokta Transport Nagar,<br />
+                Bhopal (M.P.) – 462022</span>
               </li>
             </ul>
           </div>
