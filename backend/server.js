@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {})
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://talebhoopendra37_db_user:Bhopal%40123@cluster12.9rj8nmb.mongodb.net/?appName=Cluster12', {})
 .then(async () => {
   console.log('Successfully connected to MongoDB Atlas');
   
