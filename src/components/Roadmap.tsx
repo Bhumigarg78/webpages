@@ -19,7 +19,7 @@ const Roadmap = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy uppercase tracking-wider">Course Roadmap</h2>
         </div>

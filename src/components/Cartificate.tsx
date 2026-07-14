@@ -60,7 +60,7 @@ const Certificate = () => {
   {/* Glow */}
   <div className="absolute left-1/2 top-1/2 h-50 w-50 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500/10 blur-[120px]" />
 
-  <div className="relative max-w-[1700px] mx-auto px-6">
+  <div className="relative max-w-[1400px] mx-auto px-6">
 
     {/* Left Floating Icons */}
 

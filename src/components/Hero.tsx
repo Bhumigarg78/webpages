@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: "2s" }}></div>
 
-      <div className="relative z-10 max-w-[1700px] mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
           {/* LEFT: Heading & Content */}

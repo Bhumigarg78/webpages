@@ -37,7 +37,7 @@ const navigate = useNavigate();
           : "bg-[#071428] py-4"
       }`}
     >
-      <div className="max-w-[1700px] mx-auto px-5">
+      <div className="max-w-[1400px] mx-auto px-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">

@@ -213,7 +213,7 @@ const Offer = ({
 
   return (
     <section id="reviews" className="py-20 bg-gray-50 scroll-mt-24">
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 items-stretch">
           
           {/* LEFT: INFO & OFFERS (Matching the screenshot exactly with optimized spacing) */}
