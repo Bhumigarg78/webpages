@@ -478,15 +478,23 @@ const ReferralTab = () => {
 
   useEffect(() => {
     fetch("/api/refcodes")
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data)) setCodes(data);
+      .then(async res => {
+        if (!res.ok) throw new Error("Server returned " + res.status);
+        const data = await res.json();
+        if (Array.isArray(data)) return data;
+        throw new Error("Invalid format");
       })
+      .then(data => setCodes(data))
       .catch(e => {
         console.warn("Falling back to local storage for ref codes...", e);
         try {
           const stored = localStorage.getItem("bg_ref_codes");
           if (stored) setCodes(JSON.parse(stored));
+          else setCodes([
+            { code: "BEANGATE10", discount: "10%", active: true, created: "2024-07-01", uses: 0 },
+            { code: "MERN10",     discount: "10%", active: true, created: "2024-07-01", uses: 0 },
+            { code: "REF10",      discount: "10%", active: true, created: "2024-07-01", uses: 0 },
+          ]);
         } catch {}
       });
   }, []);
