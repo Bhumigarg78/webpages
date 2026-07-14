@@ -1,0 +1,50 @@
+/* src/styles/design.css */
+/* Theme variables */
+:root {
+  --color-primary: #ff8c00; /* orange */
+  --color-primary-dark: #e67e22;
+  --color-secondary: #00bcd4; /* teal */
+  --color-bg-light: #f5f7fa;
+  --color-bg-dark: #050b18;
+  --color-card-bg-light: rgba(255, 255, 255, 0.65);
+  --color-card-bg-dark: rgba(255, 255, 255, 0.08);
+  --color-text-light: #212529;
+  --color-text-dark: #e2e8f0;
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--color-bg-dark);
+  --color-card-bg: var(--color-card-bg-dark);
+  --color-text: var(--color-text-dark);
+  --color-border: var(--color-border-dark);
+}
+
+[data-theme="light"] {
+  --color-bg: var(--color-bg-light);
+  --color-card-bg: var(--color-card-bg-light);
+  --color-text: var(--color-text-light);
+  --color-border: var(--color-border-light);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Glassmorphism card */
+.bg-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+}
+
+/* Transition for theme change */
+[data-theme] * {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
