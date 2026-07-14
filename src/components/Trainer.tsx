@@ -14,7 +14,7 @@ const Trainer = () => {
 
   return (
     <section className="py-16 lg:py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-14 items-start">
 

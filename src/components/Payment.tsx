@@ -296,7 +296,7 @@ function Payment() {
       <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-violet-600/[0.04] rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-amber-500/[0.03] rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-[1500px] mx-auto relative z-10">
         
         {/* Back Link */}
         <div className="mb-10 text-left">

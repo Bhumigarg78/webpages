@@ -19,7 +19,7 @@ const FAQ = () => {
 
   return (
     <section className="py-20 bg-white" id="faq">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-blue-600 uppercase tracking-wider mb-10">Frequently Asked Questions</h2>
         
        <div className="grid md:grid-cols-2 gap-6">

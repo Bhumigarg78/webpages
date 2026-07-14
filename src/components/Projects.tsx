@@ -40,7 +40,7 @@ const Projects = () => {
 
   return (
     <section className="py-20 bg-white overflow-hidden border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
           {/* ================= Left: Course Roadmap ================= */}

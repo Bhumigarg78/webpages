@@ -153,7 +153,7 @@ const Pricing = ({
       <div className="absolute top-[-10%] right-[10%] w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-5 relative z-10">
+      <div className="max-w-[1700px] mx-auto px-5 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <motion.span
