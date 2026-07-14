@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import logo from "../assets/logo-beangate.png"
+import logo from "../assets/logo-beangate.png";
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-navy text-gray-400 pt-16 pb-6">
@@ -36,6 +38,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition">Projects</a></li>
               <li><a href="#" className="hover:text-white transition">Trainer</a></li>
               <li><a href="#" className="hover:text-white transition">Reviews</a></li>
+              <li><Link to="/admin" className="text-orange-400 hover:text-orange-300 font-bold transition">Admin Login →</Link></li>
             </ul>
           </div>
           
