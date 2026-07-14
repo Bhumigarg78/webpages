@@ -1914,30 +1914,40 @@ const AdminPanel = () => {
   const fetchRegistrationsAndPayments = async () => {
     try {
       const regRes = await fetch("/api/registrations");
+      if (!regRes.ok) throw new Error("Registrations API returned " + regRes.status);
       const regData = await regRes.json();
       if (Array.isArray(regData)) {
         setRegistrations(regData);
       } else {
-        throw new Error("Registrations API returned error");
+        throw new Error("Registrations API returned invalid format");
       }
     } catch (e) {
       console.warn("Falling back to local storage for registrations...", e);
       const stored = localStorage.getItem("bg_registrations");
-      setRegistrations(stored ? JSON.parse(stored) : []);
+      if (stored) {
+        setRegistrations(JSON.parse(stored));
+      } else {
+        setRegistrations(MOCK_REGISTRATIONS);
+      }
     }
 
     try {
       const payRes = await fetch("/api/payments");
+      if (!payRes.ok) throw new Error("Payments API returned " + payRes.status);
       const payData = await payRes.json();
       if (Array.isArray(payData)) {
         setPayments(payData);
       } else {
-        throw new Error("Payments API returned error");
+        throw new Error("Payments API returned invalid format");
       }
     } catch (e) {
       console.warn("Falling back to local storage for payments...", e);
       const stored = localStorage.getItem("bg_payments");
-      setPayments(stored ? JSON.parse(stored) : []);
+      if (stored) {
+        setPayments(JSON.parse(stored));
+      } else {
+        setPayments(MOCK_PAYMENTS);
+      }
     }
   };
 
